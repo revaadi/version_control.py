@@ -1,11 +1,10 @@
 # This is Reva Adi's encode and main logic:
 def encode(password):
-    sum = []
-    for i in range(0, len(password)):
-        sum.append(str(i + 4))
-    res = ''
-    for value in sum:
-        res += value
+    res = ""
+    for i in range(len(password)):
+        value = int(password[i])
+        new_value = (value + 3) % 10
+        res += str(new_value)
     return res
 
 
