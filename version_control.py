@@ -8,8 +8,11 @@ def encode(password):
     return res
 
 
-def decode():
-    pass
+def decode(password):
+    newString = ""
+    for i in password:
+        newString += str((int(i) + 10 - 3) % 10)
+    return newString
 
 
 def main():
@@ -25,9 +28,15 @@ def main():
         menu_selection = int(input("Please enter an option:"))
         if menu_selection == 1:
             password_response = str(input("Please enter your password to encode:"))
+            encoded_password = encode(password_response)
             print("Your password has been encoded and stored!")
         if menu_selection == 2:
-            print(encode(password_response))
+            original_password = decode(encoded_password)
+            print("The encoded password is " + encoded_password, end="")
+            print(", and the original password is " + original_password + ".")
+            print()
+        if menu_selection == 3:
+            quit()
 
 
 if __name__ == "__main__":
